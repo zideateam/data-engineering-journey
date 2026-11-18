@@ -19,6 +19,8 @@ def main():
 
     # Calculate results
     bkash, nagad, card, rocket, cash, grand = my_tools.calculate_sales(lines)
+    
+    highest_date, highest_amount = my_tools.highest_sales_date(lines)
 
     # All print statements are at the end
     print("Sales Summary")
@@ -30,6 +32,10 @@ def main():
     print(f"cash on delivery {cash[0]}টা   {my_tools.taka(cash[1])}")
     print("------------------------------")
     print(f"সব মিলিয়ে: {my_tools.taka(grand)}")
+    print("\nDate Wise Highest Sales")
+    print("------------------------------")
+    print(f"Highest Sales Date: {highest_date}")
+    print(f"Highest Sales Amount: {my_tools.taka(highest_amount)}")
 
 
 if __name__ == "__main__":

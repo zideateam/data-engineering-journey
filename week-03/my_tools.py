@@ -80,6 +80,67 @@ def calculate_sales(lines):
         grand_total
     )
 
+def highest_sales_date(lines):
+    """Find the date with the highest sales using if/elif."""
+
+    date_07 = 0.0
+    date_08 = 0.0
+    date_09 = 0.0
+    date_10 = 0.0
+    date_11 = 0.0
+
+    for raw in lines:
+        if not raw.strip():
+            continue
+
+        parts = raw.split(";")
+
+        date = parts[1].strip()
+        amount = clean_amount(parts[5])
+        status = parts[7].strip().lower()
+
+        # Skip cancelled orders
+        if status == "cancelled":
+            continue
+
+        # Calculate sales for each date
+        if date == "2026-10-07":
+            date_07 += amount
+
+        elif date == "2026-10-08":
+            date_08 += amount
+
+        elif date == "2026-10-09":
+            date_09 += amount
+
+        elif date == "2026-10-10":
+            date_10 += amount
+
+        elif date == "2026-10-11":
+            date_11 += amount
+
+    # Find highest sales amount
+    highest_amount = max(
+        date_07, date_08, date_09, date_10, date_11
+    )
+
+    # Identify highest sales date
+    if highest_amount == date_07:
+        highest_date = "2026-10-07"
+
+    elif highest_amount == date_08:
+        highest_date = "2026-10-08"
+
+    elif highest_amount == date_09:
+        highest_date = "2026-10-09"
+
+    elif highest_amount == date_10:
+        highest_date = "2026-10-10"
+
+    else:
+        highest_date = "2026-10-11"
+
+    return highest_date, highest_amount
 
 # Main function
 def main():
