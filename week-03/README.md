@@ -8,3 +8,5 @@ This project reads `module-02/data/raw_sales.txt` and summarizes sales by paymen
 
 Run from the project root with `python3 module-03/assignments/payment_totals.py` 
 (keep `my_tools.py` in the same assignments folder).
+
+also add the maximu order date with order total at last
